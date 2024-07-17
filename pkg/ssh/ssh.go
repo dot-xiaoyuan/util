@@ -74,6 +74,14 @@ func (t *Terminal) New() error {
 		log.Fatalf("failed to request ssh: %v", err)
 		return err
 	}
+	if err = session.Shell(); err != nil {
+		log.Fatalf("failed to start shell: %v", err)
+		return err
+	}
+	if err = session.Wait(); err != nil {
+		log.Fatalf("failed to wait: %v", err)
+		return err
+	}
 	return nil
 }
 

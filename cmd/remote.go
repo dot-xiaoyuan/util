@@ -20,7 +20,6 @@ var remoteCmd = &cobra.Command{
 		if err := terminal.New(); err != nil {
 			log.Fatal(err)
 		}
-		terminal.Run("redis-cli -p 16384")
 	},
 }
 
