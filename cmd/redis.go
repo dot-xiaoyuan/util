@@ -68,7 +68,7 @@ to quickly create a Cobra application.`,
 
 func init() {
 	rootCmd.PersistentFlags().BoolP("help", "", false, "help for this command")
-	rootCmd.AddCommand(redisCmd)
+	//rootCmd.AddCommand(redisCmd)
 
 	redisCmd.PersistentFlags().StringVarP(&host, "host", "h", "127.0.0.1", "redis server host")
 	redisCmd.PersistentFlags().Int32VarP(&port, "port", "P", 6379, "redis server port")

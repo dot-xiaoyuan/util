@@ -25,7 +25,7 @@ var remoteCmd = &cobra.Command{
 
 func init() {
 
-	rootCmd.AddCommand(remoteCmd)
+	//rootCmd.AddCommand(remoteCmd)
 
 	remoteCmd.PersistentFlags().StringVarP(&terminal.Host, "host", "h", "", "remote host")
 	remoteCmd.PersistentFlags().Int32VarP(&terminal.Port, "port", "P", 22, "remote port")

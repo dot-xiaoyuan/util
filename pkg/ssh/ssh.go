@@ -43,7 +43,7 @@ func (t *Terminal) New() error {
 	defer session.Close()
 
 	// Get current fd 获取当前终端的文件描述符
-	fd := int(os.Stdin.Fd())
+	fd := int(os.Stdout.Fd())
 
 	// Get old term 获取终端的原始模式
 	oldState, err := terminal.MakeRaw(fd)
