@@ -4,6 +4,7 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/dot-xiaoyuan/util/cmd/server"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -12,8 +13,8 @@ import (
 
 var cfgFile string
 
-// rootCmd represents the base command when called without any subcommands
-var rootCmd = &cobra.Command{
+// RootCmd represents the base command when called without any subcommands
+var RootCmd = &cobra.Command{
 	Use:   "util",
 	Short: "Srun System CLI Util",
 	Long:  `基于Srun系统的CLI工具`,
@@ -22,7 +23,7 @@ var rootCmd = &cobra.Command{
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	err := rootCmd.Execute()
+	err := RootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
@@ -31,8 +32,9 @@ func Execute() {
 func init() {
 	//cobra.OnInitialize(initConfig)
 
-	rootCmd.CompletionOptions.DisableDefaultCmd = true
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.util.yaml)")
+	RootCmd.AddCommand(server.PortalCmd)
+	RootCmd.CompletionOptions.DisableDefaultCmd = true
+	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.util.yaml)")
 }
 
 // initConfig reads in config file and ENV variables if set.
