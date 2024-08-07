@@ -14,7 +14,7 @@ const (
 func ServiceCmd(u, s string, runFunc func(cmd *cobra.Command, args []string)) *cobra.Command {
 	return &cobra.Command{
 		Use:   u,
-		Short: fmt.Sprintf("Start %s server", s),
+		Short: fmt.Sprintf("%s %s server", u, s),
 		Run:   runFunc,
 	}
 }
